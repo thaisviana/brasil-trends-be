@@ -1,9 +1,9 @@
 from django.db import models
 
-PERIODS_CHOICES = (('TDY', 'today'),
-                   ('WKK', 'week'),
-                   ('MNT', 'month'),
-                   ('YAR', 'year'),)
+PERIODS_CHOICES = (('now 1-d', 'today'),
+                   ('now 7-d', 'week'),
+                   ('today 1-m', 'month'),
+                   ('today 1-y', 'year'),)
 
 
 class Word(models.Model):
