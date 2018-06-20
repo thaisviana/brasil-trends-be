@@ -47,6 +47,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'trendsApi.urls'
 
+
+CORS_ORIGIN_ALLOW_ALL = True  # TODO: Restrict this.
+CORS_ORIGIN_WHITELIST = ALLOWED_HOSTS  # TODO: Restrict this.
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
