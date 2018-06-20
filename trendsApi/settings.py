@@ -35,6 +35,10 @@ INSTALLED_APPS = [
     'elections',
 ]
 
+
+CORS_ORIGIN_ALLOW_ALL = True  # TODO: Restrict this.
+CORS_ORIGIN_WHITELIST = ALLOWED_HOSTS  # TODO: Restrict this.
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
