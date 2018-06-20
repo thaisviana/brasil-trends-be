@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'elections',
 ]
 
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -46,11 +48,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'trendsApi.urls'
-
-
 CORS_ORIGIN_ALLOW_ALL = True  # TODO: Restrict this.
 CORS_ORIGIN_WHITELIST = ALLOWED_HOSTS  # TODO: Restrict this.
+
+ROOT_URLCONF = 'trendsApi.urls'
 
 TEMPLATES = [
     {

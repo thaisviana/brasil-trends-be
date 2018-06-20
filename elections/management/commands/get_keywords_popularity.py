@@ -9,11 +9,12 @@ class Command(BaseCommand):
     help = 'get keywords for candidates'
 
     def handle(self, *args, **options):
-        Word.objects.all().delete()
         try:
-            pytrends = TrendReq(hl='pt-BR', tz=360)
+            pytrends = TrendReq(hl='pt-BR',
+                                tz=360,
+                                proxies={'https': 'https://66.119.180.104:80'})
             timeframes= ['now 7-d', 'now 1-d', 'today 1-m', 'today 2-m',  'today 1-y', ]
-            for candidate in Candidate.objects.all():
+            for candidate in Candidate.objects.all()[7:]:
                 for timeframe in timeframes[1]:
                     kw_list = [candidate.name]
                     print(candidate.name)
@@ -24,5 +25,5 @@ class Command(BaseCommand):
                         w.save()
                     print('-------------------------')
                     time.sleep(120)
-        except :
-            raise CommandError('errou!')
+        except CommandError:
+            raise

@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="792c62a4-af5b-46b5-a6b4-7ad79867150d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/elections/management/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elections/management/commands/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elections/management/commands/get_keywords_popularity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elections/models/word.py" beforeDir="false" afterPath="$PROJECT_DIR$/elections/models/word.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elections/management/commands/get_keywords_popularity.py" beforeDir="false" afterPath="$PROJECT_DIR$/elections/management/commands/get_keywords_popularity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trendsApi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/trendsApi/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,32 +18,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="get_keywords_popularity.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/elections/management/commands/get_keywords_popularity.py">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/trendsApi/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-              <folding>
-                <element signature="e#0#65#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-120">
+              <caret line="75" column="72" selection-start-line="75" selection-start-column="36" selection-end-line="75" selection-end-column="72" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="word.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/elections/models/word.py">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trendsApi/trendsApi/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="-69">
+              <caret line="42" column="44" lean-forward="true" selection-start-line="41" selection-start-column="48" selection-end-line="42" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
+        <entry file="file://$PROJECT_DIR$/trendsApi/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+              <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -71,7 +66,11 @@
         <option value="$PROJECT_DIR$/elections/management/commands/__init__.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/elections/models/word.py" />
+        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/elections/management/commands/get_keywords_popularity.py" />
+        <option value="$PROJECT_DIR$/trendsApi/trendsApi/settings.py" />
+        <option value="$PROJECT_DIR$/trendsApi/requirements.txt" />
+        <option value="$PROJECT_DIR$/trendsApi/settings.py" />
       </list>
     </option>
   </component>
@@ -84,10 +83,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="989" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -110,29 +108,16 @@
             <path>
               <item name="trendsApi" type="b2602c69:ProjectViewProjectNode" />
               <item name="trendsApi" type="462c0819:PsiDirectoryNode" />
-              <item name="elections" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trendsApi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trendsApi" type="462c0819:PsiDirectoryNode" />
-              <item name="elections" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trendsApi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trendsApi" type="462c0819:PsiDirectoryNode" />
-              <item name="elections" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
-              <item name="commands" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trendsApi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trendsApi" type="462c0819:PsiDirectoryNode" />
               <item name="env" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="trendsApi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trendsApi" type="462c0819:PsiDirectoryNode" />
+              <item name="trendsApi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trendsApi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trendsApi" type="462c0819:PsiDirectoryNode" />
               <item name="trendsApi" type="462c0819:PsiDirectoryNode" />
               <item name="trendsApi" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -200,18 +185,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="709" extended-state="6" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="manage.py@trendsApi" order="7" visible="true" weight="0.6692913" />
+      <window_info anchor="bottom" id="manage.py@trendsApi" order="7" weight="0.32125986" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.52755904" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32913387" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.6692913" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.375" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -226,6 +211,30 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.375" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32913387" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.52755904" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.6692913" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="manage.py@trendsApi" order="13" visible="true" weight="0.32125986" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -268,25 +277,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/elections/management/commands/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/elections/management/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elections/models/word.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -295,13 +290,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elections/models/word.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/elections/management/commands/get_keywords_popularity.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+        <state relative-caret-position="240">
+          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
           <folding>
             <element signature="e#0#65#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trendsApi/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trendsApi/elections/api/candidate_words.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trendsApi/trendsApi/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-69">
+          <caret line="42" column="44" lean-forward="true" selection-start-line="41" selection-start-column="48" selection-end-line="42" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trendsApi/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120">
+          <caret line="75" column="72" selection-start-line="75" selection-start-column="36" selection-end-line="75" selection-end-column="72" />
         </state>
       </provider>
     </entry>
