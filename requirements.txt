@@ -7,5 +7,15 @@ python-dotenv==0.8.2
 gunicorn==19.8.1
 whitenoise==3.3.1
 
+celery==4.1.0
+redis==2.10.6
+
+
+matplotlib==2.2.2
+numpy==1.15.0
+kombu==4.1.0
+
+django-cors-headers==2.1.0
+django-filter==1.1.0
 pytrends==4.4.0
 -e git+https://bitbucket.org/hub9/django-hybrid-router.git#egg=django-hybrid-router
