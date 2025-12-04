@@ -5,11 +5,14 @@ from rest_framework.permissions import AllowAny
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    category_words = WordSerializer(Word.objects.filter(status=True)[:16], many=True, read_only=True,)
+    category_words = serializers.SerializerMethodField()
 
     class Meta:
         model = Category
         fields = '__all__'
+
+    def get_category_words(self, obj):
+        return WordSerializer(obj.words.all()[:16], many=True).data
 
 
 class CategoryViewSet(viewsets.ModelViewSet):

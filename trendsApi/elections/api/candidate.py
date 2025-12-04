@@ -20,7 +20,14 @@ class CandidateLightViewSet(viewsets.ModelViewSet):
     filter_fields = ('words__period', 'slug',)
 
     def get_queryset(self):
+        queryset = Candidate.objects.filter(active=True).order_by('-size')
         second_round = self.request.query_params.get('round', None)
+        election_year = self.request.query_params.get('election_year', None)
+
         if second_round:
-            return Candidate.objects.filter(active=True, second_round=True).order_by('-size')
-        return Candidate.objects.filter(active=True).order_by('-size')
+            queryset = queryset.filter(second_round=True)
+        
+        if election_year:
+            queryset = queryset.filter(election_year=election_year)
+
+        return queryset

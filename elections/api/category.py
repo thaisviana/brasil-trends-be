@@ -1,4 +1,5 @@
-from ..models import Category, Word
+from ..models import Word
+from elections.models import Category
 from .candidate_words import WordSerializer
 from rest_framework import viewsets, serializers
 from rest_framework.permissions import AllowAny

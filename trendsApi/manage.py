@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import os
 import sys
+import html
+from html.parser import HTMLParser
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "trendsApi.settings")
@@ -12,4 +14,6 @@ if __name__ == "__main__":
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
+    HTMLParser.unescape = html.unescape
+
     execute_from_command_line(sys.argv)

@@ -36,16 +36,19 @@ class WordViewSet(viewsets.ModelViewSet):
         if second_round:
             candidates = candidates.filter(second_round=True)
         for candidate in candidates:
-            queryset = queryset.union(Word.objects.filter(status=True, candidate=candidate, period=period)[:16])
+            queryset = queryset.union(Word.objects.filter(candidate=candidate, period=period)[:16])
         return queryset
 
 
 class CandidateSerializer(serializers.ModelSerializer):
-    words = WordSerializer(Word.objects.filter(status=True)[:16], many=True, read_only=True,)
+    words = WordSerializer(Word.objects.all(), many=True, read_only=True,)
 
     class Meta:
         model = Candidate
         fields = '__all__'
+
+    def get_words(self, obj):
+        return WordSerializer(obj.words.all()[:16], many=True).data
 
 
 class CandidateViewSet(viewsets.ModelViewSet):

@@ -1,0 +1,11 @@
+Django==2.0.6
+dj-database-url==0.5.0
+
+djangorestframework==3.8.2
+python-dotenv==0.8.2
+
+django-cors-headers==2.1.0
+waitress==1.1.0
+-e git+https://bitbucket.org/hub9/django-hybrid-router.git#egg=django-hybrid-router
+django-filter==2.0.0
+rows

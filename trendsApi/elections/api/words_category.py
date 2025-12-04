@@ -27,7 +27,7 @@ class WordCategoryViewSet(viewsets.ModelViewSet):
             period = 'today 1-m'
         second_round = self.request.query_params.get('round', None)
         for category in Category.objects.all():
-            query = Word.objects.filter(status=True, category=category, period=period).distinct('text').order_by(
+            query = Word.objects.filter(category=category, period=period).distinct('text').order_by(
                 'text')
             if second_round:
                 query = query.filter(candidate__second_round=True)
