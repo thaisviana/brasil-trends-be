@@ -16,4 +16,13 @@ if __name__ == "__main__":
         ) from exc
     HTMLParser.unescape = html.unescape
 
+    try:
+        import django.db.backends.postgresql.base as pg_base
+        import pytz
+        def utc_tzinfo_factory(offset):
+            return pytz.utc
+        pg_base.utc_tzinfo_factory = utc_tzinfo_factory
+    except ImportError:
+        pass
+
     execute_from_command_line(sys.argv)
