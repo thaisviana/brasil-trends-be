@@ -10,7 +10,7 @@ class CandidateAdmin(admin.ModelAdmin):
 
 @admin.register(Word)
 class WordAdmin(admin.ModelAdmin):
-    list_display = ('text', 'candidate', 'size', 'period')
+    list_display = ('text', 'candidate', 'size', 'period', 'category')
     search_fields = ('text', 'candidate__name')
     list_filter = ('period', 'candidate')
 

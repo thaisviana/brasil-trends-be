@@ -44,7 +44,7 @@ class ElectionService:
             name = ElectionService.replace_special_chars(name)
             names.append(name.lower())
         names.extend(candidate.slug)
-        names.extend(candidate.labels.split(' '))
+        names.extend(candidate.slug)
 
         diff_ratio = SequenceMatcher(None, candidate.name, word).ratio()
         diff_slug_ratio = SequenceMatcher(None, candidate.slug, word).ratio()
@@ -73,3 +73,16 @@ class ElectionService:
                          period=timeframe)
                 w.save()
                 print(word, size)
+
+    @classmethod
+    def process_and_save_size_history(cls, candidate, date, size):
+        from elections.models import SizeHistory
+        # Check if entry exists for this candidate and date
+        history, created = SizeHistory.objects.get_or_create(
+            candidate=candidate,
+            date=date,
+            defaults={'weekly_size': size}
+        )
+        if not created:
+            history.weekly_size = size
+            history.save()

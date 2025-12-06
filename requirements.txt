@@ -12,3 +12,4 @@ rows
 gunicorn
 psycopg2-binary
 django-heroku
+pytrends

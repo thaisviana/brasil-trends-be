@@ -12,8 +12,6 @@ class ElectionService:
         s = [SequenceMatcher(None, candidate.name.lower(), name).ratio() for candidate in cs]
         s_slug = [SequenceMatcher(None, candidate.slug, name).ratio() for candidate in cs]
         c = None
-        if name in ['Lula', 'Luiz Inácio Lula da Silva']:
-            c = cs.get(id=1)
         if max(s) > 0.7 or c or max(s_slug) > 0.7:
             if not c:
                 c = cs[s.index(max(s))]
@@ -44,8 +42,7 @@ class ElectionService:
             name = ElectionService.replace_special_chars(name)
             names.append(name.lower())
         names.extend(candidate.slug)
-        names.extend(candidate.labels.split(' '))
-
+        
         diff_ratio = SequenceMatcher(None, candidate.name, word).ratio()
         diff_slug_ratio = SequenceMatcher(None, candidate.slug, word).ratio()
 

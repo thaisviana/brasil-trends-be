@@ -1,72 +1,78 @@
 from django.core.management.base import BaseCommand, CommandError
-from elections.assets.political import persons
-from elections.assets.political_party import parties, celebrity_names, ideological_words
-from elections.assets.related_people import people, familiar_relationship, biography_words
-from elections.assets.medias import medias
 from elections.models import Word, Category
 from django.db.models import Q
-from elections.service import ElectionService
-import rows
-
-data = rows.import_from_csv('elections/assets/genero-nomes.csv')
-names = [line.first_name.lower() for line in data]
-
-
-def isPolitical(word):
-    all_persons = []
-    if word.split(' ')[-1] == '2018':
-       word = word[:-5]
-    for p in persons:
-        all_persons.extend([ElectionService.replace_special_chars(name.lower()) for name in p])
-    return ElectionService.pertain(word, all_persons)
-
-
-def isIdeological(word):
-    return ElectionService.pertain(word, parties) \
-           or ElectionService.pertain(word, ideological_words)
-
-
-def isCelebrity(word):
-    parts = word.split(' ')
-    return parts[0] in names or ElectionService.pertain(word, celebrity_names)
-
-
-def isBiography(word, slug):
-    if ElectionService.pertain(word, familiar_relationship) or ElectionService.pertain(word, biography_words):
-        return True
-    if people.get(slug.upper()) and word in people[slug.upper()]:
-        return True
-    return False
-
-
-def isNews(word):
-    return ElectionService.pertain(word, medias)
-
+import requests
+import os
+import json
+import time
 
 class Command(BaseCommand):
-    help = 'get keywords for candidates'
-
-    def tagging(self):
-        words = Word.objects.filter(Q(category__isnull=True) | Q(category_id=2), status=True, candidate__second_round=True)
-        print(words.count())
-        for word in words:
-            if isNews(word.text):
-                word.category = Category.objects.get(text='Mídia')
-            elif isBiography(word.text, word.candidate.slug):
-                word.category = Category.objects.get(text='Biografia')
-            elif isIdeological(word.text):
-                word.category = Category.objects.get(text='Ideologia')
-            elif isPolitical(word.text):
-                word.category = Category.objects.get(text='Figuras políticas')
-            elif isCelebrity(word.text):
-                word.category = Category.objects.get(text='Celebridades')
-            else:
-                word.category = Category.objects.get(text='Outros')
-            print(word.text, word.category, word.candidate)
-            word.save()
+    help = 'Categorize words using Gemini API'
 
     def handle(self, *args, **options):
-        try:
-            self.tagging()
-        except CommandError:
-            raise
+        api_key = os.environ.get('GOOGLE_API_KEY')
+        if not api_key:
+            self.stdout.write(self.style.ERROR('GOOGLE_API_KEY environment variable not set.'))
+            return
+
+        categories = list(Category.objects.values_list('text', flat=True))
+        categories_str = ', '.join(categories)
+        
+        # Filter words that need categorization
+        # words = Word.objects.filter(Q(category__isnull=True) | Q(category__text='Outros'), status=True)
+        # Based on original code:
+        words = Word.objects.filter(Q(category__isnull=True) | Q(category_id=2), candidate__second_round=True)
+        
+        total = words.count()
+        self.stdout.write(f'Found {total} words to categorize.')
+        
+        url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}'
+        headers = {'Content-Type': 'application/json'}
+
+        for i, word in enumerate(words):
+            candidate_name = word.candidate.name if word.candidate else "Unknown"
+            
+            prompt = (
+                f"Categorize the word/phrase '{word.text}' related to the political candidate '{candidate_name}'. "
+                f"Choose one of the following categories: {categories_str}. "
+                f"If none fit well, suggest a new short category name (max 3 words). "
+                f"Return ONLY the category name, nothing else."
+            )
+            
+            payload = {
+                "contents": [{
+                    "parts": [{"text": prompt}]
+                }]
+            }
+            
+            try:
+                response = requests.post(url, headers=headers, data=json.dumps(payload))
+                
+                if response.status_code == 200:
+                    result = response.json()
+                    try:
+                        category_text = result['candidates'][0]['content']['parts'][0]['text'].strip()
+                        # Remove any punctuation or extra spaces
+                        category_text = category_text.replace('.', '').replace('"', '').strip()
+                        
+                        category, created = Category.objects.get_or_create(text=category_text)
+                        if created:
+                            self.stdout.write(self.style.SUCCESS(f'Created new category: {category_text}'))
+                        
+                        word.category = category
+                        word.save()
+                        self.stdout.write(f'[{i+1}/{total}] Categorized "{word.text}" as "{category_text}"')
+                        
+                    except (KeyError, IndexError) as e:
+                        self.stdout.write(self.style.ERROR(f'Error parsing response for "{word.text}": {e}'))
+                elif response.status_code == 429:
+                    self.stdout.write(self.style.WARNING('Rate limit exceeded. Waiting 60 seconds...'))
+                    time.sleep(60)
+                else:
+                    self.stdout.write(self.style.ERROR(f'API Error {response.status_code}: {response.text}'))
+                
+                # Simple rate limiting to avoid hitting default quotas too hard
+                time.sleep(1)
+                
+            except Exception as e:
+                self.stdout.write(self.style.ERROR(f'Request failed: {str(e)}'))
